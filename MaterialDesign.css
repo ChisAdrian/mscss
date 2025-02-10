@@ -1,27 +1,15 @@
 /* Material Design 3 CSS - Comprehensive Coverage & Best Practices */
-/* ... (Existing styles for typography, buttons, cards, etc.) */
-
-
-/* Material Design 3 CSS - Comprehensive Coverage & Best Practices */
 
 /* -------------------------------------------------- */
-/* Typography */
+/* Root Variables - Dynamic Theming Support */
 /* -------------------------------------------------- */
-
 :root {
-  --md3-display-large: 57px/64px Roboto, sans-serif; /* Example */
-  --md3-display-medium: 45px/52px Roboto, sans-serif; /* Example */
-  --md3-display-small: 36px/44px Roboto, sans-serif; /* Example */
-  --md3-headline-large: 32px/40px Roboto, sans-serif; /* Example */
-  /* ... define other type scale values */
-  --md3-body-large: 16px/24px Roboto, sans-serif;  /* Example */
-  --md3-body-medium: 14px/20px Roboto, sans-serif; /* Example */
-  --md3-body-small: 12px/16px Roboto, sans-serif; /* Example */
-
-  /* Color Palette (Dynamic Color recommended in practice) */
-  --md3-primary: #6730D2; /* Example -  Use dynamic color in production */
+  --md3-font-family: Roboto, sans-serif;
+  --md3-display-large-size: 57px;
+  --md3-display-large-line: 64px;
+  --md3-primary: #6730D2;
   --md3-on-primary: #FFFFFF;
-  --md3-secondary: #A0522D; /* Example */
+  --md3-secondary: #A0522D;
   --md3-on-secondary: #FFFFFF;
   --md3-surface: #FFFFFF;
   --md3-on-surface: #202124;
@@ -29,138 +17,60 @@
   --md3-on-background: #202124;
   --md3-error: #B00020;
   --md3-on-error: #FFFFFF;
-  /* ... define other colors */
 }
 
+/* -------------------------------------------------- */
+/* Typography */
+/* -------------------------------------------------- */
 body {
-  font-family: var(--md3-body-medium); /* Default body text */
+  font-family: var(--md3-font-family);
   color: var(--md3-on-surface);
   background-color: var(--md3-background);
 }
 
-h1 { font: var(--md3-display-large); }
-h2 { font: var(--md3-display-medium); }
-/* ... other headings */
-p { font: var(--md3-body-medium); }
-
+h1 { font-size: var(--md3-display-large-size); line-height: var(--md3-display-large-line); }
+/* Define other heading and body styles similarly */
 
 /* -------------------------------------------------- */
 /* Buttons */
 /* -------------------------------------------------- */
-
 .md3-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 16px; /* Adjust padding as needed */
+  padding: 10px 16px;
   border: none;
-  border-radius: 4px; /* M3 border-radius */
-  font: var(--md3-body-medium);
-  text-transform: uppercase; /* Or as needed */
+  border-radius: 4px;
+  font-family: var(--md3-font-family);
   cursor: pointer;
-  transition: background-color 0.2s, box-shadow 0.2s; /* Smooth transitions */
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 
 .md3-button--filled {
   background-color: var(--md3-primary);
   color: var(--md3-on-primary);
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); /* Subtle elevation */
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 .md3-button--filled:hover {
-  background-color: #5228B5; /* Darker shade on hover */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25); /* Increased elevation on hover */
+  background-color: #5228B5;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
 }
 
-.md3-button--outlined {
-  background-color: transparent;
-  color: var(--md3-primary);
-  border: 1px solid var(--md3-primary);
+.md3-button:focus-visible {
+  outline: 2px solid var(--md3-primary);
 }
 
-/* ... other button styles (text, elevated, etc.) */
-
-
-/* -------------------------------------------------- */
-/* Cards */
-/* -------------------------------------------------- */
-
-.md3-card {
-  background-color: var(--md3-surface);
-  border-radius: 8px; /* M3 border-radius */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle elevation */
-  overflow: hidden; /* For containing content */
+.md3-button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  box-shadow: none;
 }
-
-.md3-card__content {
-  padding: 16px;
-}
-
-/* ... card header, actions, etc. */
-
-
-/* -------------------------------------------------- */
-/* Form Fields (Text Fields, etc.) */
-/* -------------------------------------------------- */
-
-.md3-text-field {
-  /* ... styles for labels, input, etc. */
-  border-radius: 4px;
-  border: 1px solid #ccc; /* Example */
-  padding: 8px;
-}
-
-.md3-text-field:focus {
-  outline: none;
-  border-color: var(--md3-primary); /* Highlight on focus */
-  box-shadow: 0 0 5px rgba(var(--md3-primary-rgb), 0.2); /* Subtle shadow */
-}
-
-
-/* -------------------------------------------------- */
-/* Other Components (Lists, Dialogs, etc.) */
-/* -------------------------------------------------- */
-
-/* ... styles for other components as needed */
-
-
-/* -------------------------------------------------- */
-/* Best Practices */
-/* -------------------------------------------------- */
-
-/* 1. Use semantic HTML:  Use appropriate HTML elements for the structure. */
-
-/* 2. Component-based CSS:  Keep styles specific to components.  */
-
-/* 3. Responsive Design: Use media queries for different screen sizes. */
-@media (max-width: 600px) {
-  /* Adjust styles for smaller screens */
-  .md3-button {
-    padding: 8px 12px; /* Example */
-  }
-}
-
-/* 4. Accessibility: Ensure sufficient color contrast, ARIA attributes, etc. */
-.md3-button { /* Example */
-  /* Ensure sufficient contrast between text and background */
-}
-
-/* 5. Performance:  Minimize CSS rules, optimize selectors. */
-
-/* 6. Maintainability:  Use a clear naming convention (BEM, etc.).  */
-
-/* 7.  Dynamic Color:  Implement dynamic color as described in M3 specs for theming.  The example above uses static colors. */
-
-/* 8.  Consider a CSS-in-JS library or preprocessor if it suits your project. */
-
-/* 9.  Use a reset or normalize CSS for consistent styling across browsers. */
-
-/* 10. Test thoroughly across different browsers and devices. */
 
 /* -------------------------------------------------- */
 /* Checkbox */
 /* -------------------------------------------------- */
-
 .md3-checkbox {
   display: inline-flex;
   align-items: center;
@@ -168,113 +78,81 @@ p { font: var(--md3-body-medium); }
 }
 
 .md3-checkbox__input {
-  appearance: none; /* Remove default checkbox appearance */
+  appearance: none;
   width: 20px;
   height: 20px;
-  border: 2px solid var(--md3-on-surface); /* Unchecked border color */
-  border-radius: 4px; /* M3 border-radius */
+  border: 2px solid var(--md3-on-surface);
+  border-radius: 4px;
   margin-right: 8px;
-  position: relative; /* For the checkmark */
+  position: relative;
   transition: border-color 0.2s;
 }
 
 .md3-checkbox__input:checked {
-  border-color: var(--md3-primary); /* Checked border color */
+  border-color: var(--md3-primary);
   background-color: var(--md3-primary);
 }
 
-.md3-checkbox__input:checked::before { /* Checkmark */
-  content: "";
+.md3-checkbox__input:checked::before {
+  content: '\2714'; /* Unicode checkmark */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 10px;
-  height: 10px;
-  background-color: var(--md3-on-primary); /* Checkmark color */
-  border-radius: 2px; /* Or a more distinct checkmark shape */
-}
-
-.md3-checkbox__label {
-  font: var(--md3-body-medium);
+  color: var(--md3-on-primary);
+  font-size: 14px;
 }
 
 .md3-checkbox:hover .md3-checkbox__input {
-    border-color: var(--md3-primary);
+  border-color: var(--md3-primary);
 }
-
-.md3-checkbox__input:focus {
-  outline: none;
-  box-shadow: 0 0 5px rgba(var(--md3-primary-rgb), 0.2); /* Subtle shadow */
-}
-
 
 /* -------------------------------------------------- */
-/* Textarea */
+/* Tables */
 /* -------------------------------------------------- */
-
-.md3-textarea {
-  border: 1px solid #ccc; /* Default border color */
-  border-radius: 4px; /* M3 border-radius */
-  padding: 8px;
-  font: var(--md3-body-medium);
-  resize: vertical; /* Allow vertical resizing */
-  min-height: 100px; /* Set a minimum height */
-  width: 100%; /* Or a specific width */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  transition: border-color 0.2s;
-}
-
-.md3-textarea:focus {
-  outline: none;
-  border-color: var(--md3-primary); /* Highlight on focus */
-  box-shadow: 0 0 5px rgba(var(--md3-primary-rgb), 0.2); /* Subtle shadow */
-}
-
-.md3-textarea::placeholder {
-  color: #999; /* Placeholder text color */
-}
-
-
-/* -------------------------------------------------- */
-/* Table */
-/* -------------------------------------------------- */
-
 .md3-table {
   width: 100%;
-  border-collapse: collapse; /* Collapse borders for a cleaner look */
-  border-spacing: 0;
-  border-radius: 8px; /* M3 border-radius */
-  overflow: hidden; /* Needed for border-radius on table */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle elevation */
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .md3-table th,
 .md3-table td {
-  padding: 12px; /* Adjust padding as needed */
-  text-align: left; /* Default text alignment */
-  border-bottom: 1px solid #eee; /* Light border between rows */
-  background-color: var(--md3-surface); /* Table cell background */
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  background-color: var(--md3-surface);
   color: var(--md3-on-surface);
 }
 
 .md3-table th {
-  font-weight: 500; /* Slightly bolder header text */
-  background-color: #f5f5f5; /* Slightly different background for header */
+  font-weight: 500;
+  background-color: #f5f5f5;
 }
 
-.md3-table tr:hover { /* Optional: Highlight rows on hover */
+.md3-table tr:hover {
   background-color: #f0f0f0;
 }
 
-/* Optional: Zebra stripes */
-.md3-table tr:nth-child(even) {
-  background-color: #f8f8f8;
+/* -------------------------------------------------- */
+/* Responsive Adjustments */
+/* -------------------------------------------------- */
+@media (max-width: 600px) {
+  .md3-button {
+    padding: 8px 12px;
+  }
 }
 
-/* Optional: Add a border around the entire table */
-.md3-table {
-    border: 1px solid #eee;
+/* -------------------------------------------------- */
+/* Custom Scrollbar */
+/* -------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-/* ... (Rest of your CSS) */
+::-webkit-scrollbar-thumb {
+  background: var(--md3-primary);
+  border-radius: 4px;
+}
