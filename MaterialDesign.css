@@ -1,0 +1,174 @@
+
+/* Material Design Utility Styles with Dark & Light Theme Support */
+
+/* Default (Light Mode) */
+:root {
+  --md-primary-color: #6200EE;
+  --md-secondary-color: #03DAC5;
+  --md-surface-color: #FFFFFF;
+  --md-background-color: #F5F5F5;
+  --md-error-color: #B00020;
+  --md-text-primary: rgba(0, 0, 0, 0.87);
+  --md-text-secondary: rgba(0, 0, 0, 0.54);
+  --md-text-on-primary: #FFFFFF;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-primary-color: #BB86FC;
+    --md-secondary-color: #03DAC5;
+    --md-surface-color: #121212;
+    --md-background-color: #1E1E1E;
+    --md-error-color: #CF6679;
+    --md-text-primary: rgba(255, 255, 255, 0.87);
+    --md-text-secondary: rgba(255, 255, 255, 0.54);
+    --md-text-on-primary: #000000;
+  }
+}
+
+/* Manual Dark Mode Toggle */
+.md-dark {
+  --md-primary-color: #BB86FC;
+  --md-secondary-color: #03DAC5;
+  --md-surface-color: #121212;
+  --md-background-color: #1E1E1E;
+  --md-error-color: #CF6679;
+  --md-text-primary: rgba(255, 255, 255, 0.87);
+  --md-text-secondary: rgba(255, 255, 255, 0.54);
+  --md-text-on-primary: #000000;
+}
+
+/* Smooth Theme Transition */
+* {
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Typography */
+.md-headline {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.md-body {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--md-text-primary);
+}
+
+/* Buttons */
+.md-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.md-button:focus {
+  box-shadow: 0 0 4px var(--md-primary-color);
+}
+
+.md-button-contained {
+  background-color: var(--md-primary-color);
+  color: var(--md-text-on-primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.md-button-contained:hover {
+  background-color: #5100d8;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Input Text */
+.md-input-text, .md-textarea {
+  background-color: var(--md-surface-color);
+  color: var(--md-text-primary);
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.md-input-text:focus, .md-textarea:focus {
+  border-color: var(--md-primary-color);
+  box-shadow: 0 0 5px var(--md-primary-color);
+}
+
+.md-input-text::placeholder, .md-textarea::placeholder {
+  color: var(--md-text-secondary);
+}
+
+/* Tables */
+.md-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--md-surface-color);
+  color: var(--md-text-primary);
+}
+
+.md-table th, .md-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.md-table th {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* Snackbar */
+.md-snackbar {
+  background-color: #323232;
+  color: white;
+  padding: 16px 24px;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.md-snackbar.md-snackbar-show {
+  opacity: 1;
+}
+
+/* Grid System */
+.md-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.md-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.md-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.md-grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+.md-grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+.md-grid-cols-12 { grid-template-columns: repeat(12, 1fr); }
+
+/* Tooltip */
+.md-tooltip {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+.md-tooltip.md-tooltip-show {
+  opacity: 1;
+}
